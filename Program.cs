@@ -1,7 +1,12 @@
+using desafioIngaCode.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<TaskControlSystemContext>(opt => opt.UseSqlServer("Server=DESKTOP-E4AKSN0\\SQLEXPRESS; Database=tcsdb; TrustServerCertificate=True; Integrated Security=True;"));
 
 var app = builder.Build();
 
